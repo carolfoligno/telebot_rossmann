@@ -103,4 +103,6 @@ Favor, digite o número da loja para obter a previsão de vendas."""
 
     bot.reply_to(message, text)
 
-bot.polling()
+if __name__ == '__main__':
+    bot.polling(none_stop=True)
+

@@ -11,8 +11,8 @@ bot = telebot.TeleBot(TOKEN)
 
 def load_dataset(store_id):
     # loading test dataset
-    df10 = pd.read_csv('/home/caroline/repos/api_bot_rossmann/data/test.csv')
-    df_store_raw = pd.read_csv('/home/caroline/repos/api_bot_rossmann/data/store.csv')
+    df10 = pd.read_csv('data/test.csv')
+    df_store_raw = pd.read_csv('data/store.csv')
 
     # merge test dataset + store
     df_test = pd.merge(df10, df_store_raw, how='left', on = 'Store')

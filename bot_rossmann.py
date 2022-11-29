@@ -5,7 +5,7 @@ import re
 import telebot
 
 
-TOKEN = '5526268254:AAFodPKpa3TMK-d1AQMYYslD_1PpMncpfaE'
+TOKEN = '5526268254:AAEhrJU4B54T0PrZUizA-Cxu_ZsyEBKrWsQ'
 
 bot = telebot.TeleBot(TOKEN)
 

@@ -4,6 +4,7 @@ import json
 import re
 import telebot
 
+# https://api.telegram.org/bot5905766004:AAGZumQfjsQUZG_QPZtVhoxee6AOuxICEM4/setWebhook?url=
 
 TOKEN = '5905766004:AAGZumQfjsQUZG_QPZtVhoxee6AOuxICEM4'
 
@@ -108,5 +109,5 @@ Favor, digite o número da loja para obter a previsão de vendas."""
 # bot.set_webhook()
 
 if __name__ == '__main__':
-    bot.polling(none_stop=True)
+    bot.polling(none_stop=True, interval=0)
 

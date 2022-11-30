@@ -104,9 +104,9 @@ Favor, digite o número da loja para obter a previsão de vendas."""
     bot.reply_to(message, text)
 
 
-bot.polling()
-bot.set_webhook()
+# bot.polling()
+# bot.set_webhook()
 
-# if __name__ == '__main__':
-#     bot.polling(none_stop=True)
+if __name__ == '__main__':
+    bot.polling(none_stop=True)
 

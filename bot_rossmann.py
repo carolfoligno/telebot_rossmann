@@ -5,7 +5,7 @@ import re
 import telebot
 
 
-TOKEN = '5526268254:AAEhrJU4B54T0PrZUizA-Cxu_ZsyEBKrWsQ'
+TOKEN = '5905766004:AAGZumQfjsQUZG_QPZtVhoxee6AOuxICEM4'
 
 bot = telebot.TeleBot(TOKEN)
 
@@ -102,6 +102,9 @@ Aqui é possivel obter as previsões de vendas nas próximas 6 semanas.
 Favor, digite o número da loja para obter a previsão de vendas."""
 
     bot.reply_to(message, text)
+
+
+bot.polling()
 
 # if __name__ == '__main__':
 #     bot.polling(none_stop=True)

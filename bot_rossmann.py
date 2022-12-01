@@ -108,7 +108,15 @@ Favor, digite o número da loja para obter a previsão de vendas."""
 
     bot.reply_to(message, text)
 
-bot.infinity_polling(timeout=10, long_polling_timeout = 5)
+bot.launch({
+  webhook:{
+    host:0.0.0.0,
+    domain: "https://api.telegram.org/bot5905766004:AAGZumQfjsQUZG_QPZtVhoxee6AOuxICEM4/setWebhook?url=https://telebot-rossmann.onrender.com,
+  	port:5000,
+  }
+})
+
+# bot.infinity_polling(timeout=10, long_polling_timeout = 5)
 
 # try:
 #     bot.infinity_polling(timeout=10, long_polling_timeout=5)

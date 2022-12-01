@@ -3,6 +3,8 @@ import pandas as pd
 import json
 import re
 import telebot
+import time
+import asyncio
 
 # https://api.telegram.org/bot5905766004:AAGZumQfjsQUZG_QPZtVhoxee6AOuxICEM4/setWebhook?url=
 
@@ -110,5 +112,10 @@ Favor, digite o número da loja para obter a previsão de vendas."""
 
 if __name__ == '__main__':
     # bot.polling(none_stop=True, interval=0)
-    bot.infinity_polling(timeout=10, long_polling_timeout = 5)
+    # bot.infinity_polling(timeout=10, long_polling_timeout = 5) 
+    while True:
+        try:
+            asyncio.run(bot.polling(non_stop=True, interval=1, timeout=0))
+        except:
+            time.sleep(5)
 

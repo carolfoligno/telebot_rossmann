@@ -5,6 +5,8 @@ import re
 import telebot
 import time
 import asyncio
+import os, sys
+from requests.exceptions import ConnectionError, ReadTimeout
 
 # https://api.telegram.org/bot5905766004:AAGZumQfjsQUZG_QPZtVhoxee6AOuxICEM4/setWebhook?url=
 
@@ -107,17 +109,25 @@ Favor, digite o número da loja para obter a previsão de vendas."""
     bot.reply_to(message, text)
 
 
+try:
+    bot.infinity_polling(timeout=10, long_polling_timeout=5)
+except (ConnectionError, ReadTimeout) as e:
+    sys.stdout.flush()
+    os.execv(sys.argv[0], sys.argv)
+else:
+    bot.infinity_polling(timeout=10, long_polling_timeout=5)
+
 # bot.polling()
 # bot.set_webhook()
 
-if __name__ == '__main__':
-    # bot.polling(none_stop=True, interval=0)
-    # bot.infinity_polling(timeout=10, long_polling_timeout = 5) 
-    while True:
-        try:
-            bot.polling(non_stop=True, interval=0)
-        except Exception as e:
-            print(e)
-            time.sleep(5)
-            continue
+# if __name__ == '__main__':
+#     # bot.polling(none_stop=True, interval=0)
+#     # bot.infinity_polling(timeout=10, long_polling_timeout = 5) 
+#     while True:
+#         try:
+#             bot.polling(non_stop=True, interval=0)
+#         except Exception as e:
+#             print(e)
+#             time.sleep(5)
+#             continue
 

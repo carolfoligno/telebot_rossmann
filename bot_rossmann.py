@@ -7,12 +7,14 @@ import time
 import asyncio
 import os, sys
 from requests.exceptions import ConnectionError, ReadTimeout
+from flask import Flask, request
 
 # https://api.telegram.org/bot5905766004:AAGZumQfjsQUZG_QPZtVhoxee6AOuxICEM4/setWebhook?url=
 
 TOKEN = '5905766004:AAGZumQfjsQUZG_QPZtVhoxee6AOuxICEM4'
 
 bot = telebot.TeleBot(TOKEN)
+server = Flask(__name__) 
 
 def load_dataset(store_id):
     # loading test dataset
@@ -108,6 +110,23 @@ Favor, digite o número da loja para obter a previsão de vendas."""
 
     bot.reply_to(message, text)
 
+
+
+
+@server.route("/")
+def webhook():
+    bot.remove_webhook()
+    bot.set_webhook(url='https://telebot-rossmann.onrender.com/' + TOKEN)
+    return "!", 200
+
+
+if __name__ == "__main__":
+    server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
+
+
+
+
+
 # updater.start_webhook(listen="0.0.0.0", 
 #                           port=int(PORT), 
 #                           url_path=TOKEN) 
@@ -115,13 +134,17 @@ Favor, digite o número da loja para obter a previsão de vendas."""
 
 
 
+# bot.run_webhooks(
+#     listen='0.0.0.0',
+#     port= 5000,
+#     url_path= 
+# )
 
-
-bot.launch({
-  webhook:{
-    host:'0.0.0.0',
-    domain: "https://telebot-rossmann.onrender.com",
-  	port:5000,}})
+# bot.launch({
+#   webhook:{
+#     host:'0.0.0.0',
+#     domain: "https://telebot-rossmann.onrender.com",
+#   	port:5000,}})
 
 # "https://api.telegram.org/bot5905766004:AAGZumQfjsQUZG_QPZtVhoxee6AOuxICEM4/setWebhook?url=https://telebot-rossmann.onrender.com"
 

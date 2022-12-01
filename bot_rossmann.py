@@ -108,9 +108,18 @@ Favor, digite o número da loja para obter a previsão de vendas."""
 
     bot.reply_to(message, text)
 
+# updater.start_webhook(listen="0.0.0.0", 
+#                           port=int(PORT), 
+#                           url_path=TOKEN) 
+# updater.bot.setWebhook(' https://yourherokuappname.herokuapp.com/' + TOKEN)
+
+
+
+
+
 bot.launch({
   webhook:{
-    host:100.100.100.42,
+    host:'0.0.0.0',
     domain: "https://telebot-rossmann.onrender.com",
   	port:5000,}})
 
